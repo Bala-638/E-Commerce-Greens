@@ -6,16 +6,6 @@ export default function Mens_Clothing(){
 
     const [data] = useEffect_function("https://fakestoreapi.com/products/category/men's%20clothing");
 
-    // const [data,setData] = useState(null);
-    
-
-    // useEffect(() =>{
-    //     fetch("https://fakestoreapi.com/products/category/men's%20clothing")
-    //     .then(response => response.json())
-    //     .then(data => setData(data))
-    //     .catch(error => console.error("Better Luck Next Time"))   
-    // })
-
     const [detail,setDetail] = useState(null);
 
     const [close,setClose] = useState(false);

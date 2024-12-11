@@ -34,7 +34,7 @@ export default function Foooter(){
                     <div class='bottom_footer'>
                         <hr class="line"></hr>
                         <div class='icons'>
-                            <p>Follow us on </p>
+                            <p>Follow me on </p>
                             <a><i class="fa-brands fa-instagram"></i></a>
                             <a><i class="fa-brands fa-twitter"></i></a>
                             <a><i class="fa-brands fa-whatsapp"></i></a>

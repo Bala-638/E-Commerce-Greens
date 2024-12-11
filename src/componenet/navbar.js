@@ -21,6 +21,7 @@ export default function Navbar(){
         const filterBySearch = filterData.filter((item) => item.toLowerCase().includes(value.toLowerCase()))
 
         setData(filterBySearch);
+        
 
     }
 

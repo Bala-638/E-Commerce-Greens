@@ -1,0 +1,227 @@
+.navbar{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 100px;
+    padding: 0%;
+    align-content: center;
+
+}
+.nav-body{
+    background-color: #D3F1DF;
+}
+.navbar .logo{
+    font-weight: bold;
+    font-size: 40px;
+    color: #5A6C57;
+}
+.navbar ul li {
+    list-style-type: none;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.navbar ul{
+    float: right;
+    margin-right: 20px;
+}
+.navbar .button{
+    background-color: #5A6C57;
+    color: white;
+    padding: 10px 25px;
+    padding-bottom: 12px;
+    border-radius: 20px;
+    border: none;
+  }
+  .navbar .button:hover{
+    background-color: #85A98F;
+    color: rgb(0, 0, 0);
+  }
+  .navSearch{
+    margin-right: 50px;
+    position: relative;
+  }
+  .navSearch input{
+    padding: 10px 20PX;
+    width: 36.042vw;
+    border: 1px solid #85A98F;
+    outline: none;
+    margin-right: 2px;
+    background-color: transparent;
+    border-radius: 5px;
+  }
+  .navSearch .searchBtn{
+    background-color: #5A6C57;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 10px 20PX;
+    border-radius: 5px;
+  }
+
+  .navbar .logo:hover{
+
+    color: #0b0a0a;
+    cursor: pointer;
+    text-shadow: 0 0 100px #ffffff , 0 0 100px rgb(255, 255, 255);}
+
+    .checkbtn{
+        display: none;
+        color: #5A6C57;
+        font-size: 30px;
+        line-height: 67px;
+        float: right;
+    }
+    #check{
+        display: none;
+    }
+@media only screen and (max-width: 600px){
+    body{
+        background-size: 100% 100%;
+    }
+    .checkbtn{
+        display: block;
+    }
+    .navbar ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #0b0a0a;
+        z-index: 10;
+        top: 80px;
+        left: -120%;
+        transition: all 0.5s;
+        /* text-align: center; */
+    }
+    .navbar ul li{
+        display: block;
+        width: 100%;
+        margin-top: 30px;
+        margin: 50px 0;
+    }
+    .navbar .button{
+        background-color: transparent;
+        margin-right: 50px;
+    }
+    .searchBtn{
+        display: none;
+    }
+    .navSearch{
+        display: inline-block;
+    }
+    .navSearch input{
+        min-width: 250px;
+    }
+    .nav-search-result{
+        margin: 0;
+        left: 11%;
+        top: auto;
+        min-width: 300px;
+    }
+    .nav-search-result a{
+        background-color: transparent;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+    /* ==========footer============= */
+    .top_footer {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .top_footer ul{
+        padding: 0%;
+    }
+    /* ==========.categories====== */
+    .categories .welcome{
+        background-image: none;
+    }
+    .categories .welcome{
+        height: 400px;
+    }
+    .welcome .welcome_txt{
+        width: 100%;
+        padding: 0%;
+    }
+    .welcome_txt h1{
+        font-size: 70px;
+    }
+    .welcome_txt h5 , .welcome_txt  p{
+        font-size: 20px;
+    }
+    .welcome_txt .btn{
+        padding: 8px 16px;
+        margin-top: 10px;
+    }
+    .cat .cat-title{
+        font-size: 30px;
+    }
+    .cat_cart{
+
+        margin: 0%;
+        padding: 0%;
+        display: flex;
+        width: 100%;
+        /* background-color: red; */
+        flex-direction: column;
+    }
+    .cat_cart li{
+        display: block;
+        width: 200px;
+        padding: 0;
+        margin: 0%;
+    }
+    /* ====================full-card=================== */
+
+
+    .full-card{
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0%;
+        text-align: center;
+
+    }
+    .product_detail .product{
+        display: flex;
+        flex-direction: column;
+        padding: 0%;
+        margin: 0%;
+    }
+    .product .img{
+        width: 100%;
+        height: 400px;
+    }
+    .btn-group .btn2{
+        max-width:100px;
+    }
+    .product .img_detail{
+        width: 100%;
+        padding: 20px;
+        margin: 0%;
+      }
+      /* ======log in====== */
+      .log{
+        min-height: 500px;
+      }
+      .login-box{
+        margin-top: 0%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        padding: 0px;
+      }
+      .signup-box{
+        margin: 0%;
+        margin: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+      }
+      .formbox{
+        padding: 20px;
+      }
+
+  }

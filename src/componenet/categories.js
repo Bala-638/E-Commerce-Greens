@@ -13,12 +13,13 @@ export default function Categories (){
                 <>
                 <div className="categories">
                     <div className="welcome">
-                        <div className="welcome_txt">
+                        <   div className="welcome_txt">
                             <h5>welcome to</h5>
                             <h1>Greens</h1>
                             <p>Your Trusted Partner</p>
                             <a className="btn wel-btn" href="#cat">Explore Now</a>
-                            <a className="btn wel-btn" href="/products">All Product</a>                        </div>
+                            <a className="btn wel-btn" href="/products">All Products</a>                       
+                             </div>
                     </div>
 
                     <div id="cat" className="cat">  

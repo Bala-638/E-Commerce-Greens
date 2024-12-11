@@ -62,10 +62,10 @@ body{
   top: 30px;
 }
 .nav-search-result{
-  width: 485px;
+  width: 36.042vw;
   position: absolute;
-  left: 31%;
-  top: 60px;
+  left: 27.3%;
+  top: 88px;
   z-index: 10;
 }
 .nav-search-result a{
@@ -374,13 +374,13 @@ a{
 
 .product{
   width: 80%;
-  height: 600px;
+  min-height: 600px;
   background-color: #85A98F;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.075);
   display: flex;
   position: relative;
   z-index: 100;
-  border-radius: 10px;  
+  border-radius: 10px;
 
 }
 
