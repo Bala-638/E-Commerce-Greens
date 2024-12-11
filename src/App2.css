@@ -227,6 +227,7 @@
       .table {
         width: 100%;
         margin: 0px;
+        overflow-x: auto;
       }
       .table th, .table td {
         padding: 4px;
