@@ -110,10 +110,11 @@ footer p,footer h1{
   width: 80%;
   border: 1px solid rgba(228, 214, 214, 0.406);
 }
-.social_media a{
+.social_media .a{
   padding: 10px;
   color: white;
   font-size: 30px;
+  padding-bottom: 0%;
 }
 .top_footer{
   display: flex;
@@ -131,6 +132,11 @@ footer p,footer h1{
 .top_footer p{
   margin: 5px;
 }
+.social_media a{
+  text-decoration: none;
+  color: white;
+}
+
 
 /* ====================cart============= */
 
@@ -357,6 +363,11 @@ a{
   justify-content: center;
 }
 
+.btn-group2 a{
+  text-decoration: none;
+  color: white;
+}
+
 /* ============Float================ */
 
 .product_detail{
@@ -374,7 +385,7 @@ a{
 
 .product{
   width: 80%;
-  min-height: 600px;
+  height: 600px;
   background-color: #85A98F;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.075);
   display: flex;
@@ -568,8 +579,10 @@ h1{
 
 .allproduct{
   justify-items: center;
+
 }
 .table {
+  overflow-x: auto;
   width: 80%;
   margin: 50px;
   border-collapse: collapse;

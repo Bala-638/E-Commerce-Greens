@@ -32,8 +32,8 @@ export default function Electronics(){
                                         <img src={get.image}/>
                                     </div>
                                     <div className="btn-group btn-group2">
-                                        <button className="btn btn2">Add Cart</button>
-                                        <button className="btn btn2">Buy Now</button>
+                                        <button className="btn btn2"><a href="/login">Add Cart</a></button>
+                                        <button className="btn btn2"><a href="/login">Buy Now</a></button>
                                     </div>
                                 </div>
                                 <div className="img_detail">

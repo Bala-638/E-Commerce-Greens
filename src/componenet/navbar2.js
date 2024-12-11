@@ -26,7 +26,7 @@ export default function Navbar(){
     }
     return(
         <>
-        <div className="nav-body">
+        <div id="product_view" className="nav-body">
             <div className="navbar">
                 <input type="checkbox" id="check"/>
                 <label for="check" className="checkbtn"><i class="fa-solid fa-bars"></i></label>
