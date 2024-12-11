@@ -75,6 +75,15 @@
     #check{
         display: none;
     }
+    @media only screen and (max-width: 400px){
+        .loginLable{
+            display: none;
+        }
+        .inputbox {
+            width: 80%;
+            margin: 0;
+        }
+    }
 @media only screen and (max-width: 600px){
     body{
         background-size: 100% 100%;
@@ -225,6 +234,8 @@
       .formbox{
         padding: 20px;
       }
+
+
       /* ============all products=========== */
 
       .allproduct{
@@ -287,4 +298,5 @@
         text-align: justify;
         word-wrap: break-word;
     }
+
   }
