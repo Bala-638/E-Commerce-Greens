@@ -176,6 +176,7 @@ footer p,footer h1{
   height: 500px;
   width: 100%;
   background-color: #5A6C57;
+  align-content: center;
 }
 .categories .welcome{
   height: 700px;

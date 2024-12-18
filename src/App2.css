@@ -75,15 +75,122 @@
     #check{
         display: none;
     }
-    @media only screen and (max-width: 400px){
-        .loginLable{
-            display: none;
-        }
-        .inputbox {
-            width: 80%;
-            margin: 0;
-        }
+@media only screen and (max-width: 400px){
+    .loginLable{
+        display: none;
     }
+    .inputbox {
+        width: 80%;
+        margin: 0;
+    }
+}
+@media only screen and (max-width: 1000px){
+    .categories .welcome{
+        background-image: none !important;
+      }
+      .cat_cart{
+        display: grid;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        /* width: 90%;
+        height: 80px; */
+        gap: 10px;
+        margin: 30px;
+        text-align: center;
+        align-items: center;
+      }
+      .cat-title{
+        font-size: 30px;
+        display: block;
+      }
+      /* ===footer== */
+      .top_footer {
+        display: grid;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        text-align: center;
+    }
+    .top_footer ul{
+        padding: 0%;
+    }
+    .social_media a {
+        padding-bottom: 0%;
+    }
+    /* ===full card== */
+    .full-card{
+        display: grid !important;
+        grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+        width: 90%;
+        gap: 10px;
+        margin: 30px;
+      }
+
+}
+@media only screen and (max-width: 1286px){
+    .checkbtn{
+        display: block;
+    }
+    .navbar ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #0b0a0a;
+        z-index: 10;
+        top: 80px;
+        left: -120%;
+        transition: all 0.5s;
+        text-align: center;
+    }
+    .navbar ul li{
+        display: block;
+        width: 100%;
+        margin-top: 30px;
+        margin: 50px 0;
+    }
+    .navbar .button{
+        background-color: transparent;
+        margin-right: 50px;
+    }
+    .searchBtn{
+        display: none;
+    }
+    .navSearch{
+        display: inline-block;
+    }
+    .navSearch input{
+        max-width: 1000px;
+    }
+    .nav-search-result{
+        margin: 0;
+        left: 11%;
+        top: auto;
+        min-width: 300px;
+    }
+    .nav-search-result a{
+        background-color: transparent;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+    /* =====Categories==== */
+    .categories .welcome{
+        height: 700px;
+        background-color: #D3F1DF;
+        background-image: url(./photos/shoopping.png);
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: 650px 150px;  
+        align-content: center;
+        /* justify-items: center; */
+      }
+      .full-card{
+        display: grid;
+        grid-template-columns: repeat(3,minmax(0,1fr));
+        width: 90%;
+        gap: 10px;
+        margin: 30px;
+      }
+
+
+}
 @media only screen and (max-width: 600px){
     body{
         background-size: 100% 100%;
@@ -100,7 +207,7 @@
         top: 80px;
         left: -120%;
         transition: all 0.5s;
-        /* text-align: center; */
+        text-align: left;
     }
     .navbar ul li{
         display: block;
@@ -188,8 +295,8 @@
 
 
     .full-card{
-        display: flex;
-        flex-direction: column;
+        display: flex !important;
+        flex-direction: column !important;
         margin-left: auto;
         margin-right: auto;
         padding: 0%;
