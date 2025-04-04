@@ -1,152 +1,178 @@
-import { useEffect, useState } from  "react";
-import {EditableText} from "@blueprintjs/core";
-export default function Products (){
+import { useState,useEffect } from "react";
 
-    const [data,setData] =  useState([]);
 
-    useEffect(() => {
 
+export default function Products() {
+
+    const [data,setData] = useState([]);
+    const [originalData,setOriginalData] = useState([])
+    const [searchval,setSearchval] = useState('')
+    const [editId ,setEditid] = useState('')
+    const [editedText, setEditedText] = useState("");
+    const [editPrice,setEditPrice] = useState('')
+
+
+
+    useEffect(()=>{
         GetProducts()
-
-    }, []);
-
-
-
-    function Limit(){
-
-        fetch(`https://fakestoreapi.com/products?limit=5`)
-        .then(response => response.json())
-        .then(data => setData(data))   
-    }
-    function Limit10(){
-
-        fetch(`https://fakestoreapi.com/products?limit=10`)
-        .then(response => response.json())
-        .then(data => setData(data))   
-    }
-    function Limit15(){
-
-        fetch(`https://fakestoreapi.com/products?limit=15`)
-        .then(response => response.json())
-        .then(data => setData(data))   
-    }
-        
-
-
-    
+    },[])
 
     function GetProducts(){
-        fetch(`https://fakestoreapi.com/products`)
-        .then(response => response.json())
-        .then(data => setData(data))
+        fetch('https://fakestoreapi.com/products')
+        .then(res => res.json())
+        .then(data => {
+            setData(data);
+            setOriginalData(data)
+            })
     }
 
-    const [searchVal, setSearchVal] = useState("");
+    function Limit(limit){
+        fetch(`https://fakestoreapi.com/products?limit=${limit}`)
+            .then(res => res.json())
+            .then(data => setData(data))
+    }
 
-    function handleSearchClick() {
-
-        if (searchVal === "") { setData(data); return; }
-        const filterBySearch = data.filter((item) => {
-            if (item.title.toLowerCase()
-                .includes(searchVal.toLowerCase())) { return item; }
-        })
-        setData(filterBySearch);
+    function handleSearch(){
+        if (searchval === ""){
+            return setData(originalData);
+        }  
+        const filteredValue = originalData.filter((value) => value.title.toLowerCase().includes(searchval.toLowerCase()))  
+        setData(filteredValue)
     }
 
     function Remove(id){
-        
-        fetch(`https://fakestoreapi.com/products/${id}`,{
-            method:"DELETE"
+        fetch(`https://fakestoreapi.com/products/${id}`, { method:"DELETE" })
+            .then(res => res.json())
+            .then(() => setData((data)=>data.filter((get) => get.id !== id)))
+    }
+
+    function Edit(id,title,price){
+        setEditid(id)
+        setEditedText(title)
+        setEditPrice(price)
+    }
+
+    function Save(id){
+        fetch(`https://fakestoreapi.com/products/${id}`, { 
+            method:"PUT",
+            body: JSON.stringify({ title : editedText,price : editPrice})
         })
             .then(res => res.json())
-            .then(data => {setData((data) => {
-                return data.filter(get => get.id !== id)
+            .then(() => {
+                setData((preData) =>
+                    preData.map((datas)=>
+                        datas.id === id ? {...datas , title:editedText,price:editPrice}: datas))
+                setEditid(null)
             })
-        })
-            // GetProducts();
-        
+       
     }
-
-
-
-    function Edit(id){
-
-        const Edit_data = data.find((values) => values.id === id)
-        fetch(`https://fakestoreapi.com/products/${id}`,{
-            method:'PUT',
-            body:JSON.stringify(Edit_data)
-        })
-        .then(response => response.json())
-        .then(data => {})
-         
-    }
-
-    function HandleInput(id,key,value){
-        setData(data => {
-            return data.map(values =>{
-                return (values.id === id ) ? ({...values,[key]:value}):(values)
-            })
-        })
-    }
-    
-
-
-
 
 
     return(
         <>
             <div className="allproduct">
-                {data ? (
-                     <table className="table">
-                        <tr>
-                            <td colSpan={3}>
-                               <div class="search">
-                                    <input type="search" onChange={ e => setSearchVal(e.target.value)} placeholder="Search" />
-                                    <a className="searchclick" onClick={handleSearchClick}><i class="fa-solid fa-magnifying-glass"></i></a>
-                                </div>
-                            </td>
-                            <td colSpan={2}>
-                                <div class="dropdown">
-                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton">
-                                        View By
-                                    </button>
-                                    <div class="dropdown-menu" >
-                                        <a class="dropdown-item" onClick={Limit} >View by 5</a>
-                                        <a class="dropdown-item" onClick={Limit10} >View by 10</a>
-                                        <a class="dropdown-item" onClick={Limit15} >View by 15</a>
+                {data.length > 0 ? (
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <td colSpan={3}>
+                                    <div className ="search">
+                                        <input 
+                                            type="search"
+                                            placeholder="Search Product"
+                                            onChange={(event)=>{
+                                                setSearchval(event.target.value);
+                                                handleSearch();
+                                            }
+                                            }
+                                        />
+                                        <a onClick={handleSearch} className="searchclick">
+                                            <i className="fa-solid fa-magnifying-glass"></i>
+                                        </a>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                     <tr>
-                         <th>S.NO</th>
-                         <th>Product</th>
-                         <th>Product Details</th>
-                         <th>Price</th>
-                         <th>Acction</th>
-                     </tr>
-                     {data.map((get,index) =>
-                     <>
-                     <tr key={get.id}>
-                         <td>{index + 1}</td>
-                         <td><img src={get.image}/></td>
-                         <td><EditableText value={get.title} onChange={(value) => HandleInput(get.id,"title",value)} /></td>
-                         <td>{get.price}</td>
-                         <td><button className="product_list_btn" onClick={() => Remove(get.id)}>Remove</button>
-                         <button className="product_list_btn" onClick={() => Edit(get.id)}>Update</button></td>
-                         
-                     </tr>
+                                </td>
+                                <td colSpan={2}>
+                                    <div className="dropdown">
+                                        <button className="dropdown-toggle btn">
+                                            View By
+                                        </button>
+                                        <div className="dropdown-menu">
+                                            <a className="dropdown-item" onClick={() => Limit(5)}>View by 5</a>
+                                            <a className="dropdown-item" onClick={() => Limit(10)}>View by 10</a>
+                                            <a className="dropdown-item" onClick={() => Limit(15)}>View by 15</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>S.NO</th>
+                                <th>Product</th>
+                                <th>Product Details</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                            {data.map((get, index) => (
+                             
+                                <tr key={get.id}>
+                                    <td>{index + 1}</td>
+                                    <td><img src={get.image} alt="Product" /></td>
+                                    <td>
+                                        { get.id === editId ? (
+                                            <input
+                                                onChange={(event) => setEditedText(event.target.value)}
+                                                value={editedText}
 
-                        
-                     </>)}      
-                 </table>
+                                            />
+                                        ):(
+                                            get.title
+                                        )}
+                                    </td>
+                                    <td>
+                                        {get.id === editId ? (
+                                            <input 
+                                                className="editprice"
+                                                type="number"
+                                                value={editPrice}
+                                                onChange={(event) => setEditPrice(event.target.value)}
+                                            />
+                                        ):(
+                                            get.price
+                                        )}
+                                    </td>
+                                    <td>
+                                        {editId === get.id ? (
+                                            <button className="product_list_btn" onClick={() => Save(get.id)}>Save</button>
+                                        ):(
+                                            <button className="product_list_btn" onClick={() => Edit(get.id,get.title,get.price)}>Edit</button>
+                                        )}
+                                            <button className="product_list_btn" onClick={() => Remove(get.id)}>Remove</button>
+                                    </td>
+                                </tr>
+                               
+                            ))}
+                        </tbody>
+                    </table>
                 ):(
-                    <p>Please Waiting.....</p>
+                    <>
+                    </>
                 )}
-
             </div>
-            </>
-
-    );
+        </>
+    )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

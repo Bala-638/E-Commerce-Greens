@@ -36,7 +36,7 @@ export default function Navbar(){
                 <ul>
                     <li>
                         <div className="navSearch">
-                            <input type="search" onChange={ event => handleSearchClick(event.target.value)} placeholder="Search"/>
+                            <input type="search" onChange={ event => handleSearchClick(event.target.value)} placeholder="Search Category"/>
                             <button className="searchBtn">Search</button>
                         </div>
                         <div className="nav-search-result">

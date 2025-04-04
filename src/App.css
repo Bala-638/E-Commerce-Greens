@@ -451,6 +451,9 @@ a{
   cursor: pointer;
   font-size: 18px;
 }
+.editprice{
+  max-width: 60px !important;
+}
 
 /* ============Log In Page============== */
 
@@ -462,7 +465,7 @@ a{
   /* background-color: #2c322e; */
   background-size: 100%;
   width: 100%;
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
   align-content: center;

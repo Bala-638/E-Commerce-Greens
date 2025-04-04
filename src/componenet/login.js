@@ -2,26 +2,26 @@ export default function Login(){
     return(
             <>
                 <div className="log">
-                    <div class="login-box">
-                        <div class="formbox2">
+                    <div className="login-box">
+                        <div className="formbox2">
 
                             <h2>Log In</h2>
 
                             <form action="/">
-                                <div class="inputbox2">
+                                <div className="inputbox2">
                                     <input type="text" placeholder="Enter Your Name"/>
-                                    <label><i class="fa-solid fa-user"></i><span className="loginLable"> User Id</span> </label>
+                                    <label><i className="fa-solid fa-user"></i><span className="loginLable"> User Id</span> </label>
                                 </div>
-                                <div class="inputbox2">
+                                <div className="inputbox2">
                                     <input type="password" placeholder="Enter Password"/>
-                                    <label><i class="fa-solid fa-lock"></i><span className="loginLable"> Password</span> </label>
+                                    <label><i className="fa-solid fa-lock"></i><span className="loginLable"> Password</span> </label>
                                 </div>
-                                <div class="remember">
+                                <div className="remember">
                                     <label><input type="checkbox" />Remember Me</label>
                                 </div>
                                 <br/>
                                 <input className="btn" type="submit" />
-                                <div class="register">
+                                <div className="register">
                                     <p>Don't have an account?<a href="/signup">Register</a></p>
                                 </div>
 

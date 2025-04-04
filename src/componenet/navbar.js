@@ -34,7 +34,7 @@ export default function Navbar(){
                     <a href='/'><h1>Greens</h1></a>
                 </div>
                 <div class="search">
-                    <input type="search" placeholder="Search" onChange={ event => handleSearchClick(event.target.value)} />
+                    <input type="search" placeholder="Search Category" onChange={ event => handleSearchClick(event.target.value)} />
                     <a><i class="fa-solid fa-magnifying-glass"></i></a>
                 </div>
                 <div className="nav-search-result">
